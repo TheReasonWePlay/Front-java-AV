@@ -162,11 +162,20 @@ public class ProfilActivity extends AppCompatActivity {
 
                     if (id == R.id.nav_trajets) {
 
-                        Toast.makeText(
-                                this,
-                                "Trajets prochainement",
-                                Toast.LENGTH_SHORT
-                        ).show();
+                        Intent intent =
+                                new Intent(
+                                        ProfilActivity.this,
+                                        TrajetActivity.class
+                                );
+
+                        intent.putExtra(
+                                "nom",
+                                nomUtilisateur
+                        );
+
+                        startActivity(intent);
+
+                        finish();
 
                         return true;
                     }

@@ -231,11 +231,20 @@ public class HomeActivity extends AppCompatActivity {
 
             if (id == R.id.nav_trajets) {
 
-                Toast.makeText(
-                        this,
-                        "Trajets prochainement",
-                        Toast.LENGTH_SHORT
-                ).show();
+                Intent intent =
+                        new Intent(
+                                HomeActivity.this,
+                                TrajetActivity.class
+                        );
+
+                intent.putExtra(
+                        "nom",
+                        nomUtilisateur
+                );
+
+                startActivity(intent);
+
+                finish();
 
                 return true;
             }
