@@ -63,8 +63,8 @@ public class SocketManager {
 
         socketClient =
                 new SocketClient(
-                        "192.168.135.198",
-                        6000,
+                        Config.SERVER_HOST,
+                        Config.SERVER_SOCKET_PORT,
                         nom,
                         new SocketClient.SocketListener() {
 
