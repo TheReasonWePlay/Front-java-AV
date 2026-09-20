@@ -296,9 +296,10 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/textDepart1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Fianarantsoa"
+                                android:text=""
                                 android:textColor="#18221F"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -312,9 +313,10 @@
                                 android:textSize="18sp" />
 
                             <TextView
+                                android:id="@+id/textDestination1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Ambositra"
+                                android:text=""
                                 android:textColor="#18221F"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -322,9 +324,10 @@
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/textPrix1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="14 000 Ar"
+                            android:text=""
                             android:textColor="#00A875"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -346,17 +349,19 @@
                         android:gravity="center_vertical">
 
                         <TextView
+                            android:id="@+id/textDate1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="◷  Demain à 14:00"
+                            android:text=""
                             android:textColor="#78817D"
                             android:textSize="13sp" />
 
                         <TextView
+                            android:id="@+id/textAvatar1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="R"
+                            android:text=""
                             android:textColor="#FFFFFF"
                             android:textSize="12sp"
                             android:textStyle="bold"
@@ -365,127 +370,11 @@
                             android:padding="9dp" />
 
                         <TextView
+                            android:id="@+id/textConducteur1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:text="Rabemanjary Jean Luc"
-                            android:textColor="#4D5753"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <!-- ================================= -->
-            <!-- TRAJET 2 -->
-            <!-- ================================= -->
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardTrajet2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-
-                app:cardCornerRadius="20dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="1dp"
-                app:strokeColor="#E1E7E4"
-                app:cardBackgroundColor="#FFFFFF">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="17dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Toliara"
-                                android:textColor="#18221F"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:text="↓"
-                                android:textColor="#00BE87"
-                                android:textSize="18sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Ambalavao"
-                                android:textColor="#18221F"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="49 000 Ar"
-                            android:textColor="#00A875"
-                            android:textSize="17sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="13dp"
-                        android:background="#EEF2F0" />
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="◷  Ven. 13 Oct. à 08:30"
-                            android:textColor="#78817D"
-                            android:textSize="13sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="S"
-                            android:textColor="#FFFFFF"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:background="@drawable/bg_avatar_small"
-                            android:padding="9dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Sarah Liantsoa"
+                            android:text=""
                             android:textColor="#4D5753"
                             android:textSize="12sp" />
 
