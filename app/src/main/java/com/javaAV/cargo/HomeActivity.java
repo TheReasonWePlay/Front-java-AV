@@ -182,11 +182,18 @@ public class HomeActivity extends AppCompatActivity {
 
         cardProposer.setOnClickListener(view -> {
 
-            Toast.makeText(
-                    this,
-                    "Proposition de trajet",
-                    Toast.LENGTH_SHORT
-            ).show();
+            Intent intent =
+                    new Intent(
+                            HomeActivity.this,
+                            ProposerTrajetActivity.class
+                    );
+
+            intent.putExtra(
+                    "nom",
+                    nomUtilisateur
+            );
+
+            startActivity(intent);
 
         });
 
