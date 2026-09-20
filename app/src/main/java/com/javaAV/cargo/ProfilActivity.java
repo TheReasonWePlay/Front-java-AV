@@ -1,263 +1,223 @@
 package com.javaAV.cargo;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButton;
+
 public class ProfilActivity extends AppCompatActivity {
 
     private String nomUtilisateur;
+
+    private TextView textAvatarProfil;
+    private TextView textNomProfil;
+    private TextView textInformationNom;
+
+    private MaterialButton boutonDeconnexion;
+
+    private BottomNavigationView navigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 
-        nomUtilisateur = getIntent()
-                .getStringExtra("nom");
+        // ==========================================
+        // NOM UTILISATEUR
+        // ==========================================
 
-        if (nomUtilisateur == null) {
+        nomUtilisateur =
+                getIntent().getStringExtra("nom");
+
+        if (nomUtilisateur == null ||
+                nomUtilisateur.trim().isEmpty()) {
+
             nomUtilisateur = "Utilisateur";
         }
 
-        construireInterface();
+        // ==========================================
+        // CHARGEMENT XML
+        // ==========================================
+
+        setContentView(R.layout.activity_profil);
+
+        initialiserVues();
+        initialiserInterface();
+        initialiserActions();
+        initialiserNavigation();
     }
 
-    private void construireInterface() {
+    // ==============================================
+    // INITIALISATION DES VUES
+    // ==============================================
 
-        LinearLayout principal =
-                new LinearLayout(this);
+    private void initialiserVues() {
 
-        principal.setOrientation(
-                LinearLayout.VERTICAL
+        textAvatarProfil =
+                findViewById(R.id.textAvatarProfil);
+
+        textNomProfil =
+                findViewById(R.id.textNomProfil);
+
+        textInformationNom =
+                findViewById(R.id.textInformationNom);
+
+        boutonDeconnexion =
+                findViewById(R.id.boutonDeconnexion);
+
+        navigation =
+                findViewById(R.id.navigation);
+    }
+
+    // ==============================================
+    // INTERFACE
+    // ==============================================
+
+    private void initialiserInterface() {
+
+        // Nom
+
+        textNomProfil.setText(
+                nomUtilisateur
         );
 
-        principal.setBackgroundColor(
-                Color.rgb(250, 252, 251)
+        textInformationNom.setText(
+                nomUtilisateur
         );
 
-        // ==========================================
-        // CONTENU PRINCIPAL
-        // ==========================================
+        // Initiale
 
-        LinearLayout contenu =
-                new LinearLayout(this);
+        String initiale =
+                nomUtilisateur
+                        .substring(0, 1)
+                        .toUpperCase();
 
-        contenu.setOrientation(
-                LinearLayout.VERTICAL
+        textAvatarProfil.setText(
+                initiale
         );
+    }
 
-        contenu.setPadding(
-                30,
-                40,
-                30,
-                30
-        );
+    // ==============================================
+    // ACTIONS
+    // ==============================================
 
-        // Titre
-
-        TextView titre =
-                new TextView(this);
-
-        titre.setText("Mon profil");
-        titre.setTextSize(28);
-        titre.setTextColor(
-                Color.rgb(25, 35, 45)
-        );
-
-        titre.setPadding(
-                0,
-                0,
-                0,
-                30
-        );
-
-        contenu.addView(titre);
-
-        // Nom utilisateur
-
-        TextView nom =
-                new TextView(this);
-
-        nom.setText(
-                "Bonjour, " + nomUtilisateur
-        );
-
-        nom.setTextSize(20);
-        nom.setTextColor(
-                Color.rgb(25, 35, 45)
-        );
-
-        nom.setPadding(
-                0,
-                0,
-                0,
-                40
-        );
-
-        contenu.addView(nom);
-
-        // ==========================================
-        // BOUTON DECONNEXION
-        // ==========================================
-
-        Button boutonDeconnexion =
-                new Button(this);
-
-        boutonDeconnexion.setText(
-                "Se déconnecter"
-        );
-
-        boutonDeconnexion.setTextSize(16);
-
-        contenu.addView(
-                boutonDeconnexion,
-                new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                )
-        );
+    private void initialiserActions() {
 
         boutonDeconnexion.setOnClickListener(
                 view -> deconnecter()
         );
-
-        // ==========================================
-        // AJOUT DU CONTENU PRINCIPAL
-        // ==========================================
-
-        principal.addView(
-                contenu,
-                new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        0,
-                        1
-                )
-        );
-
-        // ==========================================
-        // BARRE DE NAVIGATION
-        // ==========================================
-
-        LinearLayout navigation =
-                creerNavigation();
-
-        principal.addView(
-                navigation,
-                new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        90
-                )
-        );
-
-        setContentView(principal);
     }
 
-    private LinearLayout creerNavigation() {
+    // ==============================================
+    // NAVIGATION
+    // ==============================================
 
-        LinearLayout navigation =
-                new LinearLayout(this);
+    private void initialiserNavigation() {
 
-        navigation.setOrientation(
-                LinearLayout.HORIZONTAL
+        // Profil sélectionné
+
+        navigation.setSelectedItemId(
+                R.id.nav_profil
         );
 
-        navigation.setGravity(
-                Gravity.CENTER
-        );
+        navigation.setOnItemSelectedListener(
+                item -> {
 
-        navigation.setBackgroundColor(
-                Color.WHITE
-        );
+                    int id =
+                            item.getItemId();
 
-        String[] noms = {
-                "⌂\nAccueil",
-                "➤\nTrajets",
-                "□\nMessages",
-                "▣\nRéservations",
-                "♙\nProfil"
-        };
+                    // ----------------------------------
+                    // ACCUEIL
+                    // ----------------------------------
 
-        for (String nom : noms) {
+                    if (id == R.id.nav_accueil) {
 
-            Button bouton =
-                    new Button(this);
+                        Intent intent =
+                                new Intent(
+                                        ProfilActivity.this,
+                                        HomeActivity.class
+                                );
 
-            bouton.setText(nom);
-            bouton.setTextSize(10);
+                        intent.putExtra(
+                                "nom",
+                                nomUtilisateur
+                        );
 
-            LinearLayout.LayoutParams params =
-                    new LinearLayout.LayoutParams(
-                            0,
-                            LinearLayout.LayoutParams.MATCH_PARENT,
-                            1
-                    );
+                        startActivity(intent);
 
-            navigation.addView(
-                    bouton,
-                    params
-            );
+                        finish();
 
-            bouton.setOnClickListener(view -> {
+                        return true;
+                    }
 
-                if (nom.contains("Accueil")) {
+                    // ----------------------------------
+                    // TRAJETS
+                    // ----------------------------------
 
-                    Intent intent =
-                            new Intent(
-                                    ProfilActivity.this,
-                                    HomeActivity.class
-                            );
+                    if (id == R.id.nav_trajets) {
 
-                    intent.putExtra(
-                            "nom",
-                            nomUtilisateur
-                    );
+                        Toast.makeText(
+                                this,
+                                "Trajets prochainement",
+                                Toast.LENGTH_SHORT
+                        ).show();
 
-                    startActivity(intent);
+                        return true;
+                    }
 
-                    finish();
+                    // ----------------------------------
+                    // MESSAGES
+                    // ----------------------------------
 
-                } else if (nom.contains("Profil")) {
+                    if (id == R.id.nav_messages) {
 
-                    // Déjà sur le profil
+                        Toast.makeText(
+                                this,
+                                "Messagerie prochainement",
+                                Toast.LENGTH_SHORT
+                        ).show();
 
-                } else if (nom.contains("Messages")) {
+                        return true;
+                    }
 
-                    Toast.makeText(
-                            this,
-                            "Messagerie prochainement",
-                            Toast.LENGTH_SHORT
-                    ).show();
+                    // ----------------------------------
+                    // RESERVATIONS
+                    // ----------------------------------
 
-                } else if (nom.contains("Trajets")) {
+                    if (id == R.id.nav_reservations) {
 
-                    Toast.makeText(
-                            this,
-                            "Trajets prochainement",
-                            Toast.LENGTH_SHORT
-                    ).show();
+                        Toast.makeText(
+                                this,
+                                "Réservations prochainement",
+                                Toast.LENGTH_SHORT
+                        ).show();
 
-                } else if (nom.contains("Réservations")) {
+                        return true;
+                    }
 
-                    Toast.makeText(
-                            this,
-                            "Réservations prochainement",
-                            Toast.LENGTH_SHORT
-                    ).show();
+                    // ----------------------------------
+                    // PROFIL
+                    // ----------------------------------
+
+                    if (id == R.id.nav_profil) {
+
+                        return true;
+                    }
+
+                    return false;
                 }
-            });
-        }
-
-        return navigation;
+        );
     }
+
+    // ==============================================
+    // DECONNEXION
+    // ==============================================
 
     private void deconnecter() {
 

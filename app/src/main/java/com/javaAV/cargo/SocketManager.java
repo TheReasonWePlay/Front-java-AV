@@ -63,7 +63,7 @@ public class SocketManager {
 
         socketClient =
                 new SocketClient(
-                        "26.226.199.167",
+                        "192.168.135.198",
                         6000,
                         nom,
                         new SocketClient.SocketListener() {
