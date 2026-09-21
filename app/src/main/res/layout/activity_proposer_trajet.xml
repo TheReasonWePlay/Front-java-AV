@@ -8,44 +8,40 @@
     android:orientation="vertical"
     android:background="#F7F9F8">
 
-    <!-- En-tête -->
+
+    <!-- ================================= -->
+    <!-- EN-TÊTE -->
+    <!-- ================================= -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:paddingTop="24dp"
         android:paddingBottom="16dp">
 
-        <LinearLayout
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:text="Proposer un trajet"
+            android:textColor="#17211D"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Proposer un trajet"
-                android:textColor="#17211D"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Partagez votre trajet avec d'autres passagers"
-                android:textColor="#89938E"
-                android:textSize="14sp" />
-
-        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="18dp"
+            android:background="#DDE4E1" />
 
     </LinearLayout>
 
+
+    <!-- ================================= -->
+    <!-- CONTENU -->
+    <!-- ================================= -->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -60,145 +56,152 @@
             android:orientation="vertical"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:paddingBottom="24dp">
+            android:paddingTop="10dp"
+            android:paddingBottom="30dp">
 
 
-            <!-- Informations trajet -->
+            <!-- ================================= -->
+            <!-- POINT DE DÉPART -->
+            <!-- ================================= -->
 
-            <com.google.android.material.card.MaterialCardView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Point de départ"
+                android:textColor="#27322E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint=""
+                app:hintEnabled="false"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="#DDE3E0"
+                app:boxStrokeWidth="1dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editDepart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Fianarantsoa"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:textColor="#27322E"
+                    android:textColorHint="#75807B"
+                    android:textSize="15sp"
+                    android:inputType="textCapSentences"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!-- ================================= -->
+            <!-- DESTINATION -->
+            <!-- ================================= -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="8dp"
+                android:text="Destination"
+                android:textColor="#27322E"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint=""
+                app:hintEnabled="false"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="#DDE3E0"
+                app:boxStrokeWidth="1dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editDestination"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Antananarivo"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:textColor="#27322E"
+                    android:textColorHint="#75807B"
+                    android:textSize="15sp"
+                    android:inputType="textCapSentences"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!-- ================================= -->
+            <!-- DATE + HEURE -->
+            <!-- ================================= -->
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="18dp"
-                app:cardElevation="1dp"
-                app:strokeColor="#E5EAE7"
-                app:strokeWidth="1dp">
+                android:orientation="horizontal"
+                android:layout_marginTop="18dp">
+
+
+                <!-- DATE -->
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Itinéraire"
-                        android:textColor="#17211D"
-                        android:textSize="17sp"
+                        android:text="Date de départ"
+                        android:textColor="#27322E"
+                        android:textSize="14sp"
                         android:textStyle="bold"
-                        android:layout_marginBottom="16dp" />
-
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Départ"
-                        app:boxBackgroundMode="outline"
-                        app:boxCornerRadiusTopStart="14dp"
-                        app:boxCornerRadiusTopEnd="14dp"
-                        app:boxCornerRadiusBottomStart="14dp"
-                        app:boxCornerRadiusBottomEnd="14dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editDepart"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textCapSentences"
-                            android:singleLine="true" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
+                        android:layout_marginBottom="8dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:hint="Destination"
+                        android:layout_height="54dp"
+                        android:hint=""
+                        app:hintEnabled="false"
                         app:boxBackgroundMode="outline"
-                        app:boxCornerRadiusTopStart="14dp"
-                        app:boxCornerRadiusTopEnd="14dp"
-                        app:boxCornerRadiusBottomStart="14dp"
-                        app:boxCornerRadiusBottomEnd="14dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editDestination"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textCapSentences"
-                            android:singleLine="true" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <!-- Date et heure -->
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="18dp"
-                app:cardElevation="1dp"
-                app:strokeColor="#E5EAE7"
-                app:strokeWidth="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Date et heure"
-                        android:textColor="#17211D"
-                        android:textSize="17sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="16dp" />
-
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Date"
-                        app:boxBackgroundMode="outline"
-                        app:boxCornerRadiusTopStart="14dp"
-                        app:boxCornerRadiusTopEnd="14dp"
-                        app:boxCornerRadiusBottomStart="14dp"
-                        app:boxCornerRadiusBottomEnd="14dp">
+                        app:boxStrokeColor="#DDE3E0"
+                        app:boxStrokeWidth="1dp"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editDate"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:focusable="false"
-                            android:clickable="true"
-                            android:inputType="none"
-                            android:singleLine="true" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:hint="Heure"
-                        app:boxBackgroundMode="outline"
-                        app:boxCornerRadiusTopStart="14dp"
-                        app:boxCornerRadiusTopEnd="14dp"
-                        app:boxCornerRadiusBottomStart="14dp"
-                        app:boxCornerRadiusBottomEnd="14dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editHeure"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="14/10/2026"
+                            android:paddingStart="18dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="#27322E"
+                            android:textColorHint="#75807B"
+                            android:textSize="14sp"
                             android:focusable="false"
                             android:clickable="true"
                             android:inputType="none"
@@ -208,115 +211,256 @@
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+
+                <!-- ESPACE -->
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
 
 
-            <!-- Places et prix -->
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                app:cardCornerRadius="18dp"
-                app:cardElevation="1dp"
-                app:strokeColor="#E5EAE7"
-                app:strokeWidth="1dp">
+                <!-- HEURE -->
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tarification"
-                        android:textColor="#17211D"
-                        android:textSize="17sp"
+                        android:text="Heure"
+                        android:textColor="#27322E"
+                        android:textSize="14sp"
                         android:textStyle="bold"
-                        android:layout_marginBottom="16dp" />
-
+                        android:layout_marginBottom="8dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Nombre de places"
+                        android:layout_height="54dp"
+                        android:hint=""
+                        app:hintEnabled="false"
                         app:boxBackgroundMode="outline"
-                        app:boxCornerRadiusTopStart="14dp"
-                        app:boxCornerRadiusTopEnd="14dp"
-                        app:boxCornerRadiusBottomStart="14dp"
-                        app:boxCornerRadiusBottomEnd="14dp">
+                        app:boxStrokeColor="#DDE3E0"
+                        app:boxStrokeWidth="1dp"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editPlaces"
+                            android:id="@+id/editHeure"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="08:30"
+                            android:paddingStart="18dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="#27322E"
+                            android:textColorHint="#75807B"
+                            android:textSize="14sp"
+                            android:focusable="false"
+                            android:clickable="true"
+                            android:inputType="none"
                             android:singleLine="true" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
+                </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/layoutPrix"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Prix proposé (Ar)"
-                            app:boxBackgroundMode="outline"
-                            app:boxCornerRadiusTopStart="14dp"
-                            app:boxCornerRadiusTopEnd="14dp"
-                            app:boxCornerRadiusBottomStart="14dp"
-                            app:boxCornerRadiusBottomEnd="14dp">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/editPrix"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="numberDecimal"
-                                android:singleLine="true" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
 
 
-                        <TextView
-                            android:id="@+id/textPrixRecommande"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text=""
-                            android:textColor="#00A878"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:visibility="gone" />
+            <!-- ================================= -->
+            <!-- NOMBRE DE PLACES -->
+            <!-- ================================= -->
 
-                    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="8dp"
+                android:text="Nombre de places disponibles"
+                android:textColor="#27322E"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#DDE3E0"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp">
+
+
+                    <!-- ================================= -->
+                    <!-- BOUTON MOINS -->
+                    <!-- ================================= -->
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/boutonMoinsPlaces"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:minWidth="48dp"
+                        android:minHeight="48dp"
+                        android:padding="0dp"
+                        android:text="−"
+                        android:textColor="#27322E"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="#E5F4EC"
+                        app:cornerRadius="24dp"
+                        app:elevation="0dp" />
+
+
+                    <!-- ================================= -->
+                    <!-- NOMBRE -->
+                    <!-- ================================= -->
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editPlaces"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="0dp"
+                        android:text="3"
+                        android:textColor="#17211D"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                    <!-- ================================= -->
+                    <!-- BOUTON PLUS -->
+                    <!-- ================================= -->
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/boutonPlusPlaces"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:minWidth="48dp"
+                        android:minHeight="48dp"
+                        android:padding="0dp"
+                        android:text="+"
+                        android:textColor="@android:color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="#00BE87"
+                        app:cornerRadius="24dp"
+                        app:elevation="0dp" />
 
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
 
-            <!-- Bouton -->
+            <!-- ================================= -->
+            <!-- PRIX -->
+            <!-- ================================= -->
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/boutonProposer"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="8dp"
+                android:text="Prix par passager"
+                android:textColor="#27322E"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutPrix"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:text="Proposer le trajet"
-                android:textSize="16sp"
+                android:hint=""
+                app:hintEnabled="false"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="#DDE3E0"
+                app:boxStrokeWidth="1dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editPrix"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="40000 Ar"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:textColor="#27322E"
+                    android:textColorHint="#75807B"
+                    android:textSize="15sp"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!-- ================================= -->
+            <!-- PRIX RECOMMANDÉ -->
+            <!-- ================================= -->
+
+            <TextView
+                android:id="@+id/textPrixRecommande"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text=""
+                android:textColor="#00A878"
+                android:textSize="13sp"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"
-                app:backgroundTint="#00BE87"
-                app:cornerRadius="16dp" />
+                android:visibility="gone" />
 
         </LinearLayout>
 
     </ScrollView>
+
+
+    <!-- ================================= -->
+    <!-- BOUTON Reserver -->
+    <!-- ================================= -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="20dp"
+        android:background="#F7F9F8">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/boutonProposer"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Reserver"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="#00BE87"
+            app:cornerRadius="14dp"
+            app:elevation="0dp"/>
+
+    </LinearLayout>
 
 </LinearLayout>

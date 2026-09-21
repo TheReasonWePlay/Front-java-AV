@@ -284,99 +284,116 @@
                     android:orientation="vertical"
                     android:padding="17dp">
 
+
+                    <!-- ================================= -->
+                    <!-- DEPART → DESTINATION -->
+                    <!-- ================================= -->
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical">
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/textDepart1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text=""
-                                android:textColor="#18221F"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:text="↓"
-                                android:textColor="#00BE87"
-                                android:textSize="18sp" />
-
-                            <TextView
-                                android:id="@+id/textDestination1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text=""
-                                android:textColor="#18221F"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
+                        <!-- Départ -->
                         <TextView
-                            android:id="@+id/textPrix1"
+                            android:id="@+id/textDepart1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=""
-                            android:textColor="#00A875"
-                            android:textSize="17sp"
+                            android:textColor="#18221F"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <!-- Flèche -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:text="→"
+                            android:textColor="#00BE87"
+                            android:textSize="23sp"
+                            android:textStyle="bold" />
+
+                        <!-- Destination -->
+                        <TextView
+                            android:id="@+id/textDestination1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text=""
+                            android:textColor="#18221F"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
 
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="13dp"
-                        android:background="#EEF2F0" />
+                    <!-- ================================= -->
+                    <!-- PRIX : EN DESSOUS, À DROITE -->
+                    <!-- ================================= -->
 
+                    <TextView
+                        android:id="@+id/textPrix1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="end"
+                        android:text=""
+                        android:textColor="#00A875"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+
+                    <!-- ================================= -->
+                    <!-- DATE / HEURE -->
+                    <!-- ================================= -->
+
+                    <TextView
+                        android:id="@+id/textDate1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#78817D"
+                        android:textSize="13sp" />
+
+
+                    <!-- ================================= -->
+                    <!-- CONDUCTEUR -->
+                    <!-- ================================= -->
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:gravity="center_vertical">
 
-                        <TextView
-                            android:id="@+id/textDate1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text=""
-                            android:textColor="#78817D"
-                            android:textSize="13sp" />
-
+                        <!-- Avatar -->
                         <TextView
                             android:id="@+id/textAvatar1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_avatar_small"
+                            android:gravity="center"
                             android:text=""
                             android:textColor="#FFFFFF"
                             android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:background="@drawable/bg_avatar_small"
-                            android:padding="9dp" />
+                            android:textStyle="bold" />
 
+                        <!-- Nom conducteur -->
                         <TextView
                             android:id="@+id/textConducteur1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
+                            android:layout_marginStart="10dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
                             android:text=""
-                            android:textColor="#4D5753"
-                            android:textSize="12sp" />
+                            android:textColor="#18221F"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 

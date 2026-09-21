@@ -40,6 +40,9 @@ public class ProposerTrajetActivity extends AppCompatActivity {
     private EditText editDate;
     private EditText editHeure;
     private EditText editPlaces;
+
+    private MaterialButton boutonMoinsPlaces;
+    private MaterialButton boutonPlusPlaces;
     private EditText editPrix;
 
     private TextView textPrixRecommande;
@@ -65,6 +68,32 @@ public class ProposerTrajetActivity extends AppCompatActivity {
 
         initialiserVues();
         initialiserActions();
+
+        boutonMoinsPlaces = findViewById(R.id.boutonMoinsPlaces);
+        boutonPlusPlaces = findViewById(R.id.boutonPlusPlaces);
+        editPlaces = findViewById(R.id.editPlaces);
+
+        boutonMoinsPlaces.setOnClickListener(v -> {
+
+            int places = Integer.parseInt(
+                    editPlaces.getText().toString()
+            );
+
+            if (places > 1) {
+                places--;
+                editPlaces.setText(String.valueOf(places));
+            }
+        });
+
+        boutonPlusPlaces.setOnClickListener(v -> {
+
+            int places = Integer.parseInt(
+                    editPlaces.getText().toString()
+            );
+
+            places++;
+            editPlaces.setText(String.valueOf(places));
+        });
 
         executorService =
                 Executors.newSingleThreadExecutor();
