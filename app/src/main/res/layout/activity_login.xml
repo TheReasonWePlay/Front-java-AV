@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F7F9F8">
+
+
+    <!-- ================================= -->
+    <!-- CONTENU PRINCIPAL -->
+    <!-- ================================= -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingStart="28dp"
+            android:paddingEnd="28dp"
+            android:paddingTop="70dp"
+            android:paddingBottom="30dp">
+
+
+            <!-- ================================= -->
+            <!-- LOGO -->
+            <!-- ================================= -->
+
+            <TextView
+                android:id="@+id/textLogo"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/bg_avatar"
+                android:gravity="center"
+                android:text="C"
+                android:textColor="@android:color/white"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+
+            <!-- ================================= -->
+            <!-- TITRE -->
+            <!-- ================================= -->
+
+            <TextView
+                android:id="@+id/textTitre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="Bienvenue sur CarGo"
+                android:textColor="#17211D"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+
+            <!-- ================================= -->
+            <!-- SOUS-TITRE -->
+            <!-- ================================= -->
+
+            <TextView
+                android:id="@+id/textSousTitre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Connectez-vous pour continuer"
+                android:textColor="#89938E"
+                android:textSize="15sp" />
+
+
+            <!-- ================================= -->
+            <!-- ESPACE -->
+            <!-- ================================= -->
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="42dp" />
+
+
+            <!-- ================================= -->
+            <!-- LABEL NOM -->
+            <!-- ================================= -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Votre nom"
+                android:textColor="#27322E"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+            <!-- ================================= -->
+            <!-- CHAMP NOM -->
+            <!-- ================================= -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutNom"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:hint=""
+                app:hintEnabled="false"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="#DDE3E0"
+                app:boxStrokeWidth="1dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/champNom"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Entrez votre nom"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:textColor="#27322E"
+                    android:textColorHint="#75807B"
+                    android:textSize="15sp"
+                    android:inputType="textCapWords"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!-- ================================= -->
+            <!-- BOUTON CONNEXION -->
+            <!-- ================================= -->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/boutonConnexion"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:text="Se connecter"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="#00BE87"
+                app:cornerRadius="14dp"
+                app:elevation="0dp" />
+
+
+            <!-- ================================= -->
+            <!-- ETAT CONNEXION -->
+            <!-- ================================= -->
+
+            <TextView
+                android:id="@+id/textEtat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#89938E"
+                android:textSize="13sp" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <!-- ================================= -->
+    <!-- BAS DE PAGE -->
+    <!-- ================================= -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="22dp"
+        android:text="CarGo • Partagez vos trajets simplement"
+        android:textColor="#A0AAA6"
+        android:textSize="12sp" />
+
+</LinearLayout>

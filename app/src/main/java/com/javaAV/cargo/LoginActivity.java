@@ -1,117 +1,116 @@
 package com.javaAV.cargo;
 
+import android.Manifest;
 import android.content.Intent;
-import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.javaAV.cargo.network.SocketClient;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText champNom;
-    private Button boutonConnexion;
+    private TextInputEditText champNom;
+    private MaterialButton boutonConnexion;
     private TextView textEtat;
 
     private SocketManager socketManager;
-    private NotificationHelper notificationHelper;
-
-    private static final String HOST = "26.226.199.167";
-    private static final int PORT = 6000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
 
-        if (android.os.Build.VERSION.SDK_INT >=
-                android.os.Build.VERSION_CODES.TIRAMISU) {
+        // =========================================
+        // PERMISSION NOTIFICATIONS
+        // =========================================
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
 
             requestPermissions(
                     new String[]{
-                            android.Manifest.permission.POST_NOTIFICATIONS
+                            Manifest.permission.POST_NOTIFICATIONS
                     },
                     100
             );
         }
 
-        notificationHelper =
-                new NotificationHelper(this);
+        // =========================================
+        // SOCKET MANAGER
+        // =========================================
 
         socketManager =
                 SocketManager.getInstance(this);
 
-        construireInterface();
+        // =========================================
+        // INTERFACE XML
+        // =========================================
+
+        setContentView(R.layout.activity_login);
+
+        initialiserVues();
+
+        initialiserActions();
     }
 
-    private void construireInterface() {
 
-        LinearLayout layout = new LinearLayout(this);
+    // =============================================
+    // INITIALISATION DES VUES
+    // =============================================
 
-        layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setGravity(Gravity.CENTER);
-        layout.setPadding(40, 40, 40, 40);
+    private void initialiserVues() {
 
-        TextView titre = new TextView(this);
+        champNom =
+                findViewById(R.id.champNom);
 
-        titre.setText("Bienvenue sur CarGo");
-        titre.setTextSize(28);
-        titre.setTextColor(Color.rgb(20, 35, 45));
-        titre.setGravity(Gravity.CENTER);
+        boutonConnexion =
+                findViewById(R.id.boutonConnexion);
 
-        TextView sousTitre = new TextView(this);
+        textEtat =
+                findViewById(R.id.textEtat);
+    }
 
-        sousTitre.setText(
-                "Connectez-vous pour continuer"
-        );
 
-        sousTitre.setTextSize(16);
-        sousTitre.setGravity(Gravity.CENTER);
-        sousTitre.setPadding(0, 20, 0, 40);
+    // =============================================
+    // ACTIONS
+    // =============================================
 
-        champNom = new EditText(this);
-
-        champNom.setHint("Entrez votre nom");
-        champNom.setTextSize(16);
-        champNom.setSingleLine(true);
-
-        boutonConnexion = new Button(this);
-
-        boutonConnexion.setText("Se connecter");
-        boutonConnexion.setTextSize(16);
-
-        textEtat = new TextView(this);
-
-        textEtat.setText("");
-        textEtat.setTextSize(14);
-        textEtat.setGravity(Gravity.CENTER);
-        textEtat.setPadding(0, 25, 0, 0);
-
-        layout.addView(titre);
-        layout.addView(sousTitre);
-        layout.addView(champNom);
-        layout.addView(boutonConnexion);
-        layout.addView(textEtat);
-
-        setContentView(layout);
+    private void initialiserActions() {
 
         boutonConnexion.setOnClickListener(
                 view -> connecter()
         );
+
+        // Permettre de valider avec le clavier
+        champNom.setOnEditorActionListener(
+                (v, actionId, event) -> {
+
+                    connecter();
+
+                    return true;
+                }
+        );
     }
+
+
+    // =============================================
+    // CONNEXION
+    // =============================================
 
     private void connecter() {
 
-        String nom = champNom.getText()
-                .toString()
-                .trim();
+        String nom =
+                champNom.getText()
+                        .toString()
+                        .trim();
+
+
+        // =========================================
+        // VALIDATION
+        // =========================================
 
         if (nom.isEmpty()) {
 
@@ -119,14 +118,26 @@ public class LoginActivity extends AppCompatActivity {
                     "Veuillez entrer votre nom"
             );
 
+            champNom.requestFocus();
+
             return;
         }
+
+
+        // =========================================
+        // ETAT CONNEXION
+        // =========================================
 
         boutonConnexion.setEnabled(false);
 
         textEtat.setText(
                 "Connexion en cours..."
         );
+
+
+        // =========================================
+        // CONNEXION SOCKET
+        // =========================================
 
         socketManager.connecter(
                 nom,
@@ -141,6 +152,11 @@ public class LoginActivity extends AppCompatActivity {
                             textEtat.setText(
                                     "Connexion réussie"
                             );
+
+
+                            // =====================
+                            // HOME
+                            // =====================
 
                             Intent intent =
                                     new Intent(
@@ -158,6 +174,7 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
                         });
                     }
+
 
                     @Override
                     public void onError(
